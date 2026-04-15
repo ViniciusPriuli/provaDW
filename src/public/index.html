@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>API de Piadas 😂</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 30px;
+      border-radius: 15px;
+      width: 400px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    select, button {
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    button {
+      background: #00c9a7;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #00a58c;
+    }
+
+    .joke {
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .setup {
+      font-weight: bold;
+    }
+
+    .punchline {
+      margin-top: 10px;
+      color: #ffd166;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>😂 Piadas</h1>
+
+    <select id="tipo">
+      <option value="Any">Qualquer</option>
+      <option value="Programming">Programação</option>
+      <option value="Misc">Misc</option>
+      <option value="Dark">Dark</option>
+      <option value="Pun">Trocadilho</option>
+    </select>
+
+    <button onclick="buscarPiada()">Buscar Piada</button>
+
+    <div class="joke">
+      <p class="setup" id="setup"></p>
+      <p class="punchline" id="punchline"></p>
+    </div>
+  </div>
+
+  <script>
+    async function buscarPiada() {
+      const tipo = document.getElementById("tipo").value;
+
+      try {
+        const response = await fetch(`/api/piada?tipo=${tipo}`);
+        const data = await response.json();
+
+        document.getElementById("setup").innerText = data.setup;
+        document.getElementById("punchline").innerText = data.punchline;
+
+      } catch (error) {
+        alert("Erro ao buscar piada 😢");
+      }
+    }
+  </script>
+
+</body>
+</html>

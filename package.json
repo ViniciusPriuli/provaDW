@@ -1,0 +1,26 @@
+{
+  "name": "provadw",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ViniciusPriuli/provaDW.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ViniciusPriuli/provaDW/issues"
+  },
+  "homepage": "https://github.com/ViniciusPriuli/provaDW#readme",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.15.0",
+    "express": "^5.2.1",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5"
+  }
+}
